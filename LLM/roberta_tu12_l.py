@@ -363,9 +363,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='LoRA fine-tuning with RoBERTa using DataParallel')
 
     # 数据参数
-    parser.add_argument('--train_path', type=str, default='./dataset12_k/train', help='Path to training data') # TODO
-    parser.add_argument('--val_path', type=str, default='./dataset12_k/val', help='Path to val data')
-    parser.add_argument('--test_path', type=str, default='./dataset12_k/test', help='Path to test data')
+    parser.add_argument('--train_path', type=str, default='./dataset_k12/train', help='Path to training data') # TODO
+    parser.add_argument('--val_path', type=str, default='./dataset_k12/val', help='Path to val data')
+    parser.add_argument('--test_path', type=str, default='./dataset_k12/test', help='Path to test data')
     parser.add_argument('--output_dir', type=str, default='./roberta_saved12_k_l', help='Output directory for saved model') # todo
 
     # 模型参数

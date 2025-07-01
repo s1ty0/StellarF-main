@@ -359,9 +359,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='LoRA fine-tuning with gpt2 using PyTorch Lightning')
 
     # 数据参数
-    parser.add_argument('--train_path', type=str, default='./dataset12/train', help='Path to training data')
-    parser.add_argument('--test_path', type=str, default='./dataset12/test', help='Path to test data')
-    parser.add_argument('--val_path', type=str, default='./dataset12/val', help='Path to val data')
+    parser.add_argument('--train_path', type=str, default='./dataset_k12/train', help='Path to training data')
+    parser.add_argument('--test_path', type=str, default='./dataset_k12/test', help='Path to test data')
+    parser.add_argument('--val_path', type=str, default='./dataset_k12/val', help='Path to val data')
     parser.add_argument('--output_dir', type=str, default='./gpt4ts_saved_1_12', help='Output directory for saved model')
 
     # 模型参数

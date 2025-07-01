@@ -371,9 +371,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Moment using DataParallel')
 
     # 数据参数
-    parser.add_argument('--train_path', type=str, default='./dataset/train', help='Path to training data')
-    parser.add_argument('--test_path', type=str, default='./dataset/test', help='Path to test data')
-    parser.add_argument('--val_path', type=str, default='./dataset/val', help='Path to val data')
+    parser.add_argument('--train_path', type=str, default='./dataset_k/train', help='Path to training data')
+    parser.add_argument('--test_path', type=str, default='./dataset_k/test', help='Path to test data')
+    parser.add_argument('--val_path', type=str, default='./dataset_k/val', help='Path to val data')
     parser.add_argument('--output_dir', type=str, default='./moment_saved', help='Output directory for saved model')
 
     # 模型参数

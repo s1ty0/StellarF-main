@@ -419,9 +419,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='LoRA fine-tuning with GPT2 using DataParallel')
-    parser.add_argument('--train_path', type=str, default='./dataset12_k/train', help='Path to training data') #todo
-    parser.add_argument('--val_path', type=str, default='./dataset12_k/val', help='Path to training data')
-    parser.add_argument('--test_path', type=str, default='./dataset12_k/test', help='Path to test data')
+    parser.add_argument('--train_path', type=str, default='./dataset_k12/train', help='Path to training data') #todo
+    parser.add_argument('--val_path', type=str, default='./dataset_k12/val', help='Path to training data')
+    parser.add_argument('--test_path', type=str, default='./dataset_k12/test', help='Path to test data')
     parser.add_argument('--output_dir', type=str, default='./gpt2_saved12_l', help='Output directory for saved model')
 
     parser.add_argument('--num_classes', type=int, default=2, help='Number of output classes')
