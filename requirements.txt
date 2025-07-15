@@ -1,0 +1,10 @@
+numpy
+torch
+transformers
+tqdm
+pandas
+pyarrow
+scikit-learn
+peft
+pytorch-lightning
+tensorboard
