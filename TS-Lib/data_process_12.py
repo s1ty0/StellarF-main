@@ -68,7 +68,7 @@ get_emb_from_txt(out_path_test, out_path_emb_test)
 
 print("Turn txt into 512emb (val)")
 out_path_emb_val  = r"dataset_k12/idea2_emb_val.npy"
-get_emb_from_txt(out_path_test, out_path_emb_val)
+get_emb_from_txt(out_path_val, out_path_emb_val)
 
 
 print("All data done, begin to fuse!")
