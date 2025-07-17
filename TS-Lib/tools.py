@@ -18,8 +18,8 @@ def read_parquet_file_kepler(file_path):
     metadata = data.metadata
 
     # # todo run
-    # light_curve = light_curve[0:512]
-    # label = label[0:512]
+    # light_curve = light_curve[0:10]
+    # label = label[0:10]
 
     return light_curve, label, metadata
 
@@ -209,8 +209,8 @@ def build_patch_data_tess(data_dir, save_dir=""):
     label = data['mask']
 
     # todo run
-    # light_curve = light_curve[0:512]
-    # label = label[0:512]
+    # light_curve = light_curve[0:10]
+    # label = label[0:10]
 
     global batch_res
     batch_res = []
@@ -234,15 +234,17 @@ def get_idea1_txt_tess(data_dir, out_path):
     label = data['mask']
 
     # todo run
-    # light_curve = light_curve[0:512]
-    # label = label[0:512]
+    # light_curve = light_curve[0:10]
+    # label = label[0:10]
 
     i = 0
     mode = "w"
     for (lc, lb) in zip(light_curve, label):
         flux_median = np.median(lc)
         count_ones = np.sum(lb)
-        line = f"For the star, a total of {count_ones} stellar flares occurred with a median flux of {flux_median}"
+        # line = f"For the star, a total of {count_ones} stellar flares occurred with a median flux of {flux_median}"
+        line = f"恒星共计发生了{count_ones}次恒星耀斑，流量中值为{flux_median}"
+
         with open(out_path, mode) as f:
             f.write(f"{line}\n")
         i = i + 1
@@ -254,8 +256,7 @@ def get_idea2_txt_kepler(data_dir, out_path):
     print(f"length: {len(label)}")
 
     # todo run
-    # label = label[0:512]
-    # metadata = metadata[0:512]
+    # label = label[0:10]
 
     i = 0
     mode = "w"
@@ -264,7 +265,7 @@ def get_idea2_txt_kepler(data_dir, out_path):
         quarter = md['quarter']
         record_list = [i + 1 for i, val in enumerate(lb) if val == 1]
 
-        line = f"For the star with ID {kic_id}, during observation quarter {quarter}, the historical time points of flare eruptions during observation quater {quarter} are: {record_list}."
+        line = f"恒星id编号{kic_id}，在观测季度{quarter}内的耀斑爆发历史时间点为:{record_list}"
         with open(out_path, mode) as f:
             f.write(f"{line}\n")
         i = i + 1
@@ -278,8 +279,8 @@ def get_idea1_txt_kepler(data_dir, out_path):
     print(f"length: {len(label)}")
 
     # todo run
-    # label = label[0:512]
-    # metadata = metadata[0:512]
+    # label = label[0:10]
+    # metadata = metadata[0:10]
 
     i = 0
     mode = "w"
@@ -289,7 +290,7 @@ def get_idea1_txt_kepler(data_dir, out_path):
         flux_median = md['flux_median']
         count_ones = np.sum(lb)
 
-        line = f"For the star with ID {kic_id}, during observation quarter {quarter}, a total of {count_ones} stellar flares occurred with a median flux of {flux_median}."
+        line = f"恒星id编号{kic_id}，在观测季度{quarter},共计发生了{count_ones}次恒星耀斑，流量中值为{flux_median}"
         with open(out_path, mode) as f:
             f.write(f"{line}\n")
         i = i + 1
@@ -303,13 +304,13 @@ def get_idea2_txt_tess(data_dir, out_path):
     label = data['mask']
 
     # todo run
-    # label = label[0:512]
+    # label = label[0:10]
 
     i = 0
     mode = "w"
     for lb in label:
         record_list = [i + 1 for i, val in enumerate(lb) if val == 1]
-        line = f"For the star, the historical time points of flare eruptions during observation quarter are {record_list}"
+        line = f"恒星在观测季度内的耀斑爆发历史时间点为:{record_list}"
         with open(out_path, mode) as f:
             f.write(f"{line}\n")
         i = i + 1
@@ -353,13 +354,13 @@ def batch_encode(texts, model, tokenizer, device, batch_size=32, max_length=128,
 def get_emb_from_txt(out_path_txt, out_path):
     print("======================================")
     print("Using Bert Encoder to encode our texts.")
-    with open(out_path_txt, 'r', encoding='utf-8') as f: 
+    with open(out_path_txt, 'r', encoding='utf-8') as f:
         texts = f.readlines()
     texts = [text.strip() for text in texts] # # 简单预处理（去除换行符）
     # print(texts) # debug
     print(f"Load {len(texts)} records.")
-    model_name = 'bert-base-uncased' # for English(base) # Add some exp.
-    # model_name = 'bert-base-chinese'                # for Chinese(base)
+    # model_name = 'bert-base-uncased' # for English(base) # Add some exp.
+    model_name = 'bert-base-chinese'                # for Chinese(base)
     # model_name = 'hfl/chinese-bert-wwm'           # BERT pre-trained on Chinese Wikipedia
     # model_name = 'hfl/chinese-roberta-wwm-ext'    # Enhanced Chinese RoBERTa
 
@@ -400,9 +401,9 @@ def read_parquet_file_kepler(file_path): #
     label = data.label
     metadata = data.metadata
 
-    # todo run
-    # light_curve = light_curve[0:512]
-    # label = label[0:512]
-    # metadata = metadata[0:512]
+    # # todo run
+    # light_curve = light_curve[0:10]
+    # label = label[0:10]
+    # metadata = metadata[0:10]
 
     return light_curve, label, metadata
