@@ -87,7 +87,7 @@ pip install -r requirements.txt
   python data_process_12.py
   ```
 
-
+After you execute these data preprocessing files, you will find that there are many redundant files in the `dataset_k`, `dataset_t`, `dataset_k12` and `dataset_t12` folders. Feel free to delete them; it is sufficient to keep only the `train`, `val`, and `test` folders. (Note: Be sure to delete them in time, otherwise they will take up too much storage space!)
 
 3. Model Testing and Evaluation 
     I'm sure you have successfully completed the construction of our data! 
