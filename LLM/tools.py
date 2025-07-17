@@ -144,7 +144,7 @@ def save_as_numpy(lc_tensor, label_tensor, save_dir="./"):
 
 
 # Function Definition - process data
-def get_std_data(lc_series, label_series, patch_len=512, batch_size=8, pred_len=48, stride=24, save_dir="./"):
+def get_std_data(lc_series, label_series, patch_len=512, batch_size=8, pred_len=480, stride=48, save_dir="./"):
     # Three hyperparameters. The default values are the parameters in the original FLARE paper
     patch_len = patch_len
     stride = stride
