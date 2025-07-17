@@ -8,3 +8,5 @@ scikit-learn
 peft
 pytorch-lightning
 tensorboard
+momentfm
+einops
