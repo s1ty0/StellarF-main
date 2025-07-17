@@ -127,7 +127,7 @@ train_lc = np.vstack([left_lc_val, left_lc_test])  # Overlay
 train_label = np.vstack([left_label_val, left_label_test])
 train_lc = torch.from_numpy(train_lc)
 train_label = torch.from_numpy(train_label)
-save_as_numpy(train_lc, data_label_val, save_dir="dataset_t/train")
+save_as_numpy(train_lc, train_label, save_dir="dataset_t/train")
 print("Train data X's shape is ", train_lc.shape)
 print("Train data y's shape is ", train_label.shape)
 print("Test data X's shape is ", data_lc_test.shape)
