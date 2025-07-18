@@ -96,7 +96,11 @@ print("Shape is: (patch_num, dim, d_model)")
 
 print("======================================")
 print("Build test data from source 1 & 2 data")
-# build test data
+
+# Follow my exp choose data 策略 
+test_lc, val_lc = val_lc, test_lc
+test_label, val_label = val_label, test_label
+
 take_num = len(test_lc)
 val_num = len(val_lc)
 sample_num = take_num + val_num
