@@ -212,12 +212,12 @@ del expanded_emb2
 del expanded_emb2_end
 
 #mv label
-train_label_path = r"dataset_k12/train/label.npy"
-test_label_path = r"dataset_k12/test/label.npy"
-val_label_path = r"dataset_k12/val/label.npy"
-np.save(train_label_path, np.load(r"dataset_k/train/label.npy"))
-np.save(test_label_path, np.load(r"dataset_k/test/label.npy"))
-np.save(val_label_path, np.load(r"dataset_k/val/label.npy"))
+train_label_path = r"dataset_k12/train/label_data.npy"
+test_label_path = r"dataset_k12/test/label_data.npy"
+val_label_path = r"dataset_k12/val/label_data.npy"
+np.save(train_label_path, np.load(r"dataset_k/train/label_data.npy"))
+np.save(test_label_path, np.load(r"dataset_k/test/label_data.npy"))
+np.save(val_label_path, np.load(r"dataset_k/val/label_data.npy"))
 print("mv label ok.")
 
 del train_label_path
