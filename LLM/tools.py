@@ -245,7 +245,7 @@ def get_idea1_txt_tess(data_dir, out_path):
         # line = f"For the star, a total of {count_ones} stellar flares occurred with a median flux of {flux_median}"
         line = f"恒星共计发生了{count_ones}次恒星耀斑，流量中值为{flux_median}"
 
-        with open(out_path, mode) as f:
+        with open(out_path, mode, encoding="utf-8") as f:
             f.write(f"{line}\n")
         i = i + 1
         mode = "a"
@@ -266,7 +266,7 @@ def get_idea2_txt_kepler(data_dir, out_path):
         record_list = [i + 1 for i, val in enumerate(lb) if val == 1]
 
         line = f"恒星id编号{kic_id}，在观测季度{quarter}内的耀斑爆发历史时间点为:{record_list}"
-        with open(out_path, mode) as f:
+        with open(out_path, mode, encoding="utf-8") as f:
             f.write(f"{line}\n")
         i = i + 1
         mode = "a"
@@ -291,7 +291,7 @@ def get_idea1_txt_kepler(data_dir, out_path):
         count_ones = np.sum(lb)
 
         line = f"恒星id编号{kic_id}，在观测季度{quarter},共计发生了{count_ones}次恒星耀斑，流量中值为{flux_median}"
-        with open(out_path, mode) as f:
+        with open(out_path, mode, encoding="utf-8") as f:
             f.write(f"{line}\n")
         i = i + 1
         mode = "a"
@@ -311,7 +311,7 @@ def get_idea2_txt_tess(data_dir, out_path):
     for lb in label:
         record_list = [i + 1 for i, val in enumerate(lb) if val == 1]
         line = f"恒星在观测季度内的耀斑爆发历史时间点为:{record_list}"
-        with open(out_path, mode) as f:
+        with open(out_path, mode, encoding="utf-8") as f:
             f.write(f"{line}\n")
         i = i + 1
         mode = "a"
