@@ -457,6 +457,9 @@ val_label = np.load(r"dataset_t12/source2/label_data.npy")
 # val_lc = val_lc[0:100]
 # val_label = val_label[0:100]
 
+# Follow my exp choose data 策略 TODO
+test_lc, val_lc = val_lc, test_lc
+test_label, val_label = val_label, test_label
 
 # build test data
 take_num = len(test_lc)
