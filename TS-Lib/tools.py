@@ -142,9 +142,23 @@ def save_as_numpy(lc_tensor, label_tensor, save_dir="./"):
         np.save(f"{save_dir}/label_data.npy", label_tensor)
     print(f"Data has saved in {save_dir}")
 
+def normalize_flux(lst):
+    """将列表中的值归一化到-1到1的范围"""
+    # 计算列表的最小值和最大值
+    min_val = min(lst)
+    max_val = max(lst)
+
+    # 归一化每个元素
+    normalized = []
+    for value in lst:
+        # 使用公式: 2 * ((x - min) / (max - min)) - 1
+        normalized_value = 1 + 0.05 * ((value - min_val) / (max_val - min_val))
+        normalized.append(normalized_value)
+
+    return normalized
 
 # Function Definition - process data
-def get_std_data(lc_series, label_series, patch_len=512, batch_size=8, pred_len=480, stride=48, save_dir="./"):
+def get_std_data(lc_series, label_series, patch_len=512, batch_size=8, pred_len=480, stride=48, save_dir="./", is_tess=False):
     # Three hyperparameters. The default values are the parameters in the original FLARE paper
     patch_len = patch_len
     stride = stride
@@ -168,7 +182,11 @@ def get_std_data(lc_series, label_series, patch_len=512, batch_size=8, pred_len=
         # Process each sample within the batch
         for lc, label in zip(batch_lc, batch_label):
             index = np.arange(len(lc))
-            lc = linear_interpolate_numpy(index, lc)
+            if is_tess:
+                lc_nor = normalize_flux(lc)
+                lc = np.array(lc_nor)
+            else:
+                lc = linear_interpolate_numpy(index, lc)
 
             # Convert to tensor and adjust the shape
             lc_torch = torch.from_numpy(lc)
@@ -214,7 +232,7 @@ def build_patch_data_tess(data_dir, save_dir=""):
 
     global batch_res
     batch_res = []
-    light_curve_std, label_std, batch_res = get_std_data(light_curve, label, save_dir = f"./{save_dir}")
+    light_curve_std, label_std, batch_res = get_std_data(light_curve, label, save_dir = f"./{save_dir}", is_tess=True)
     return light_curve_std, label_std, batch_res
 
 def build_patch_data_kepler(data_dir, save_dir=""):
